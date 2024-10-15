@@ -1,0 +1,38 @@
+<HybridServices>:
+    HoverButton:
+        text: "< back"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 0.1, "center_y": 0.9}
+        on_press: app.load_web_services()
+
+    Label:
+        text: "hybrid services"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        color: 1, 1, 1, 1
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 0.5, "center_y": 0.9}
+
+    ScrollView:
+        size_hint: None, None
+        size: 1200, 500  # Fixed size for ScrollView
+        pos_hint: {"center_x": 0.5, "center_y": 0.35}
+        do_scroll_x: False  # Disable horizontal scrolling, if not needed
+        do_scroll_y: True   # Enable vertical scrolling
+
+        GridLayout:
+            id: scripts_grid
+            cols: 1
+            size_hint: None, None  # Disable size hints to center the grid
+            size: self.minimum_size  # Ensure GridLayout resizes based on its content
+            height: self.minimum_height  # Adjust height based on children
+            width: self.minimum_width  # Adjust width based on children
+            padding: [500, 30]  # You might need to adjust this based on your needs
+            spacing: 10

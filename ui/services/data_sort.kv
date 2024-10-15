@@ -1,0 +1,160 @@
+<DataSortScreen>:
+    HoverButton:
+        text: "< back"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 0.1, "center_y": 0.9}
+        on_press: app.load_app_services()
+
+    Label:
+        text: "data_sort"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        color: 1, 1, 1, 1
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 0.5, "center_y": 0.9}
+
+    HoverButton:
+        id: lookup_button
+        text: "lookup"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 0.9, "center_y": 0.9}
+        on_press: root.toggle_text_inputs()
+
+    TextInput:
+        id: text_input_1
+        hint_text: "enter text"
+        text: ""
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 20
+        size_hint: None, None
+        size: 300, 300
+        pos_hint: {"center_x": 0.5, "center_y": 0.48}
+        background_normal: ''
+        background_active: ''
+        background_color: 0, 0, 0, 0
+        foreground_color: 1, 1, 1, 1
+        padding: [10, 10]
+        multiline: True
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # White border
+            Line:
+                width: 2
+                rectangle: (self.x, self.y, self.width, self.height)
+
+    HoverButton:
+        id: read_button
+        text: "read"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.1}
+        on_press: root.process_input_data()
+
+    HoverButton:
+        id: clear_button
+        text: "clear"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 2, "center_y": 2}
+        on_press: root.clear_input_data()
+
+    HoverButton:
+        id: separate_button
+        text: "separate"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 2, "center_y": 2}
+        on_press: root.separate_text()
+
+    HoverButton:
+        id: deduplicate_button
+        text: "deduplicate"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 2, "center_y": 2}
+        on_press: root.deduplicate_text()
+
+    HoverButton:
+        id: a_difference_b_button
+        text: "a - b"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 2, "center_y": 2}
+        on_press: root.set_difference()
+
+    HoverButton:
+        id: b_difference_a_button
+        text: "b - a"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 2, "center_y": 2}
+        on_press: root.set_difference_b_a()
+
+    HoverButton:
+        id: a_union_b_button
+        text: "a u b"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 2, "center_y": 2}
+        on_press: root.set_union()
+
+    HoverButton:
+        id: a_intersection_b_button
+        text: "a n b"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 2, "center_y": 2}
+        on_press: root.set_intersection()
+
+    Label:
+        id: copied_label
+        text: "copied!"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 20
+        color: 1, 1, 1, 1
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 0.5, "center_y": 0.85}
+        opacity: 0
+

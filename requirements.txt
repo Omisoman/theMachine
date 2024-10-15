@@ -1,0 +1,7 @@
+kivy
+pyperclip
+gcloud
+google-cloud-bigquery
+google-cloud-storage
+google_auth_oauthlib
+python-dotenv

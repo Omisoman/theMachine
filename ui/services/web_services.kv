@@ -1,0 +1,45 @@
+FloatLayout:
+    HoverButton:
+        text: "< back"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 0.1, "center_y": 0.9}
+        on_press: app.load_services()
+
+    Label:
+        text: "web services"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        color: 1, 1, 1, 1
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 0.5, "center_y": 0.9}
+
+    HoverButton:
+        text: "cloud services"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1  # Dimmed text color
+        pos_hint: {"center_x": 0.5, "center_y": 0.55}
+        on_press: app.load_cloud_services()
+
+    HoverButton:
+        text: "hybrid services"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1  # Dimmed text color
+        pos_hint: {"center_x": 0.5, "center_y": 0.45}
+        on_press: app.load_hybrid_services()

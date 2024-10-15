@@ -1,0 +1,180 @@
+<DataSetScreen>:
+    datasets_box: datasets_box
+    tables_box: tables_box
+    columns_box: columns_box
+    records_view: records_view
+
+    HoverButton:
+        text: "< back"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 0.1, "center_y": 0.9}
+        on_press: app.load_app_services()
+
+    Label:
+        text: "data_set"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        color: 1, 1, 1, 1
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 0.5, "center_y": 0.9}
+
+    Label:
+        text: "datasets"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 20
+        size_hint: None, None
+        size: self.texture_size
+        padding: [44, 10]
+        background_normal: ''
+        background_color: 0, 0, 0, 1  # Black background
+        color: 1, 1, 1, 1  # White text color
+        pos_hint: {'center_x': 0.2, 'center_y': 0.3}
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # White frame color
+            Line:
+                width: 1.5
+                rectangle: self.x, self.y, self.width, self.height
+
+    Label:
+        text: "tables"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 20
+        size_hint: None, None
+        size: self.texture_size
+        padding: [64, 10]
+        background_normal: ''
+        background_color: 0, 0, 0, 1  # Black background
+        color: 1, 1, 1, 1  # White text color
+        pos_hint: {'center_x': 0.42, 'center_y': 0.3}
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # White frame color
+            Line:
+                width: 1.5
+                rectangle: self.x, self.y, self.width, self.height
+
+    HoverButton:
+        text: "view"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0  # Transparent background
+        color: 0.5, 0.5, 0.5, 1  # Grey text color
+        pos_hint: {'center_x': 0.72, 'center_y': 0.22}  # Aligned between the two buttons
+        on_press: root.view_records()  # Update to call DataSetScreen's method
+
+    HoverButton:
+        text: "*"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 20
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0  # Transparent background
+        color: 0.5, 0.5, 0.5, 1  # Grey text color
+        pos_hint: {'center_x': 0.29, 'center_y': 0.8}  # Aligned between the two buttons
+        on_press: root.all_records()  # Update to call DataSetScreen's method
+
+    ScrollView:
+        id: datasets_scrollview
+        size_hint: None, None
+        size: 250, 110
+        pos_hint: {'center_x': 0.2, 'center_y': 0.21}
+        bar_width: 5
+        do_scroll_x: False
+        do_scroll_y: True
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Line:
+                width: 1.5
+                rectangle: self.x, self.y, self.width, self.height
+
+        BoxLayout:
+            id: datasets_box
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 10
+            spacing: dp(10)
+
+    ScrollView:
+        id: tables_scrollview
+        size_hint: None, None
+        size: 250, 110
+        pos_hint: {'center_x': 0.42, 'center_y': 0.21}
+        bar_width: 5
+        do_scroll_x: False
+        do_scroll_y: True
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Line:
+                width: 1.5
+                rectangle: self.x, self.y, self.width, self.height
+
+        BoxLayout:
+            id: tables_box
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 10
+            spacing: dp(10)
+
+    ScrollView:
+        id: columns_scrollview
+        size_hint: None, None
+        size: 250, 320
+        pos_hint: {'center_x': 0.2, 'center_y': 0.57}
+        bar_width: 5
+        do_scroll_x: False
+        do_scroll_y: True
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Line:
+                width: 1.5
+                rectangle: self.x, self.y, self.width, self.height
+
+        BoxLayout:
+            id: columns_box
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 20
+            spacing: 1
+
+    ScrollView:
+        id: records_view
+        size_hint: None, None
+        size: 680, 320
+        pos_hint: {'center_x': 0.6, 'center_y': 0.57}
+        bar_width: 5
+        do_scroll_x: True
+        do_scroll_y: True
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Line:
+                width: 1.5
+                rectangle: self.x, self.y, self.width, self.height
+
+        GridLayout:
+            id: records_grid
+            cols: 1  # Number of columns will be set dynamically in Python code
+            size_hint_x: None
+            width: self.minimum_width
+            size_hint_y: None
+            height: self.minimum_height
+            padding: [80, 30, 80, 30]
+            spacing: [90, 10]  # Space between elements, [horizontal spacing, vertical spacing]

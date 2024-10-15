@@ -1,0 +1,67 @@
+<HoverButton>:
+    color: self.text_color
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+FloatLayout:
+    orientation: 'vertical'
+    size_hint: 1, 1
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: "theMachine()"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 48
+        color: 1, 1, 1, 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+        size_hint: None, None
+        size: self.texture_size
+
+    HoverButton:
+        text: "services"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.50}
+        on_press: app.load_services()
+
+    Label:
+        text: "automations"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.40}
+
+    Label:
+        text: "machine learning"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.30}
+
+
+
+
+
+
