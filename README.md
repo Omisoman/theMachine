@@ -88,6 +88,103 @@ The **machine learning service** leverages AI to perform advanced data analysis,
 ![Alt text](./images/THEMACHINE_FUNCTION_DROP.png)
 
 ---
+
+## **Installation**
+
+To set up **The Machine**, follow these steps:
+
+1. **Clone the repository**:
+   
+   ```bash
+   git clone https://github.com/Omisoman/theMachine
+   cd theMachine
+
+2. **Set up the environment**:
+
+   - Create a `.env` file in the root directory with the following structure:
+
+     ```
+     PROJECT_ID=
+
+     # Credentials
+     SERVICES_JSON=/Path/To/Project/theMachine/config/services.json
+     CREDENTIALS_JSON=/Path/To/Project/theMachine/config/credentials.json
+     TOKEN_JSON=/Path/To/Project/theMachine/config/token.json
+
+     # API_HUBS
+     CLOUD_FUNCTIONS_HUB=/Path/To/Project/theMachine/services/web_services/cloud_functions/cloud_functions_hub_storage/cloud_functions_hub.json
+
+     # DataSets
+     DATASET_NAME=
+     TABLE_NAME=
+
+     # Buckets
+     CLOUD_BUCKET=cloud_functions_hub_storage
+     CLOUD_SOURCE_BLOB=cloud_functions_hub.json
+     HYBRID_BUCKET=hybrid_functions
+     HYBRID_SOURCE_BLOB=/data_set/
+     HYBRID_REQUIREMENTS_BLOB=requirements.txt
+
+     # KV files
+     LOGON_KV=/Path/To/Project/theMachine/ui/services/logon.kv
+     THE_MACHINE_KV=/Path/To/Project/theMachine/ui/services/theMachine.kv
+     SERVICES_KV=/Path/To/Project/theMachine/ui/services/services.kv
+     APP_SERVICES_KV=/Path/To/Project/theMachine/ui/services/app_services.kv
+     WEB_SERVICES_KV=/Path/To/Project/theMachine/ui/services/web_services.kv
+     DATA_SORT_KV=/Path/To/Project/theMachine/ui/services/data_sort.kv
+     DATA_SET_KV=/Path/To/Project/theMachine/ui/services/data_set.kv
+     CLOUD_SERVICES_KV=/Path/To/Project/theMachine/ui/services/cloud_services.kv
+     HYBRID_SERVICES_KV=/Path/To/Project/theMachine/ui/services/hybrid_services.kv
+     AUTOMATIONS_KV=/Path/To/Project/theMachine/ui/services/automations.kv
+     FILE_MACHINE_KV=/Path/To/Project/theMachine/ui/services/file_machine.kv
+     DATA_MACHINE_KV=/Path/To/Project/theMachine/ui/services/data_machine.kv
+
+     ```
+     
+3. **Install dependencies**:
+   
+   ```bash
+   pip install -r requirements.txt
+
+4. **Google Cloud Setup**:
+   
+   - You must have a **Google Gmail** account in order for me to grant you access to my deployed services.
+  
+5. **Run the application**:
+
+   ```bash
+   python /Path/To/Project/theMachine/ui/services/theMachine.py
+   
+---
+
+## **Frameworks and Technologies Used**
+
+This project leverages the following frameworks and technologies:
+
+- **Python** – The core programming language used.
+- **Kivy** – For building the graphical user interface and handling interactive elements.
+- **Google Cloud**:
+  - **Google Cloud Functions** – For running serverless, scalable operations.
+  - **Google Cloud Storage** – For file storage and retrieval.
+  - **BigQuery** – For managing datasets and queries.
+  - **Google Secret Manager** – For secure credential and API management.
+- **Pandas** – For data manipulation and analysis.
+- **OpenPyXL** – For handling Excel files during file conversions.
+- **Requests** – For making HTTP requests to APIs.
+
+Make sure to check the `requirements.txt` for more information on dependencies.
+
+---
+
+## **License**
+
+This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
+
+You are free to use, modify, and distribute the software as long as the original license and copyright notice are retained. The project is provided "as is," without any warranties or guarantees.
+
+
+---
+
 ## **Conclusion**
 
 **The Machine** is a robust tool designed to automate workflows, leverage AI for decision-making, and enable scalable cloud computing. The combination of **web services**, **automation services**, and **machine learning services** makes it a comprehensive solution for developers, businesses, and anyone looking to automate data-heavy processes.
