@@ -25,3 +25,7 @@ venv/
 
 # Environment variables
 .env
+
+#Personal Local Prompt
+project_prompt.txt
+
