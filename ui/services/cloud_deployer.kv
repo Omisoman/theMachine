@@ -1,0 +1,39 @@
+#PENDING DEVELOPMENT
+FloatLayout:
+    HoverButton:
+        text: "< back"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        size_hint: None, None
+        size: self.texture_size
+        background_normal: ''
+        background_color: 0, 0, 0, 0
+        color: 0.5, 0.5, 0.5, 1 # Dimmed text
+        pos_hint: {"center_x": 0.1, "center_y": 0.9}
+        on_press: app.load_admin()
+
+    Label:
+        text: "cloud_deployer"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 24
+        color: 1, 1, 1, 1
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {"center_x": 0.5, "center_y": 0.9}
+
+    Label:
+        id: deploy
+        text: "drop and deploy"
+        font_name: "fonts/PressStart2P-Regular.ttf"
+        font_size: 18
+        color: 1, 1, 1, 1
+        size_hint: None, None
+        size: self.texture_size
+        padding: [100, 120]
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Line:
+                width: 1.5
+                rectangle: self.x, self.y, self.width, self.height

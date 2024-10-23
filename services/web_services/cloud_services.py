@@ -23,7 +23,12 @@ class CloudServices(FloatLayout):
         self.load_functions()
 
     def load_functions(self):
-        hub_file_path = os.getenv('CLOUD_FUNCTIONS_HUB')
+        hub_file_path = '/tmp/cloud_functions_hub.json'  # Correct path where the JSON is stored
+
+        if not hub_file_path or not os.path.exists(hub_file_path):
+            print("Cloud Functions Hub file is not found.")
+            return  # Exit if the file is missing
+
         with open(hub_file_path, 'r') as f:
             functions = json.load(f)
 
@@ -37,7 +42,7 @@ class CloudServices(FloatLayout):
                 font_size=24,
                 background_normal='',
                 background_color=(0, 0, 0, 0),
-                color=(0.5, 0.5, 0.5, 1) # Dimmed text
+                color=(0.5, 0.5, 0.5, 1)  # Dimmed text
             )
             hover_button.bind(on_press=self.create_on_function_click_listener(function))
             grid.add_widget(hover_button)
@@ -46,7 +51,7 @@ class CloudServices(FloatLayout):
         def on_function_click(instance):
             print(f"Button pressed for function: {func['Name']}")
             if func['Input'] == 'TRIGGER':
-                print(f"Trigger function {func['URL']}") #For debugging
+                print(f"Trigger function {func['URL']}")  # For debugging
                 self.trigger_function(func['URL'])
             elif func['Input'] == 'FILE':
                 self.load_file_machine(func)  # Pass function details to load_file_machine
@@ -69,7 +74,7 @@ class CloudServices(FloatLayout):
         app = App.get_running_app()
         app.root.clear_widgets()
         app.root.add_widget(FileMachine(function_details=function_details))
-        print("Opening file_machine window...", function_details) #Important tracer
+        print("Opening file_machine window...", function_details)  # Important tracer
 
 
 class CloudServicesApp(App):
